@@ -1,0 +1,9 @@
+.library-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.library-contaier {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
