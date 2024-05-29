@@ -1,9 +1,129 @@
-.library-header {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+/* :root {
+
+} */
+
+body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, rgb(48, 46, 46), rgb(65, 63, 63));
+    color: white;
+    padding: 0px 20px;
+    font-weight: 900;
 }
 
-.library-contaier {
+.header {
+    height: 100px;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.new-book {
+    width: 200px;
+    padding: 15px 50px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgb(6, 168, 6);
+    border: none;
+    border-bottom: 5px solid rgb(0, 124, 0);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+dialog {
+    position: absolute;
+    top: 15vh;
+    width: 400px;
+    height: 400px;
+    background-color: rgb(48, 46, 46);
+    border: none;
+    border-bottom: 5px solid rgb(34, 33, 33);
+    border-radius: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+}
+
+.form-title {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.form-content {
+    display: flex;
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.add {
+    padding: 15px 50px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgb(6, 168, 6);
+    border: none;
+    border-bottom: 5px solid rgb(0, 124, 0);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.library-header {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.library-header div {
+    border: 2px solid rgb(22, 22, 22);
+    padding: 20px;
+    background-color: rgb(71, 70, 70);
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.library-content {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+}
+
+.content {
+    border: 2px solid rgb(22, 22, 22);
+    padding: 20px;
+    background-color: rgb(102, 102, 102);
+}
+
+.trash {
+    height: 80%;
+    width: 50px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 2px solid rgb(124, 0, 0);
+    background-color: rgb(177, 0, 0);
+
+}
+
+.trash svg {
+    height: 30px;
+    width: auto;
 }
