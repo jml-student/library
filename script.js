@@ -43,9 +43,34 @@ function displayLibrary() {
         libraryContent.appendChild(pages);
 
         let readed = document.createElement("div");
-        readed.setAttribute("class", "content");
-        readed.textContent = myLibrary[i].readed;
+        readed.setAttribute("class", "content readed-content");
+
+        let status = document.createElement("div");
+        status.setAttribute("class", "status");
+
+        let firstBox = document.createElement("div");
+        firstBox.setAttribute("class", "first-box");
+
+        let secondBox = document.createElement("div");
+        secondBox.setAttribute("class", "second-box");
+
+        status.appendChild(firstBox);
+        status.appendChild(secondBox);
+        readed.appendChild(status);
         libraryContent.appendChild(readed);
+        
+        
+        styleStatus(myLibrary[i].readed, firstBox, secondBox, status);
+
+        status.addEventListener("click", () => {
+            if (myLibrary[i].readed === "off") {
+                myLibrary[i].readed = "on";
+                styleStatus(myLibrary[i].readed, firstBox, secondBox, status);
+            } else if (myLibrary[i].readed === "on") {
+                myLibrary[i].readed = "off";
+                styleStatus(myLibrary[i].readed, firstBox, secondBox, status);
+            }
+        })
 
         let trash = document.createElement("button");
         trash.setAttribute("class", "trash");
@@ -70,7 +95,36 @@ const addButton = document.querySelector(".add");
 
 addButton.addEventListener("click", () => {
     addBookToLibrary();
+    let checkbox = document.querySelector("#readed");
+    let lastIndex = myLibrary.length - 1;
+    if (checkbox.checked) {
+        myLibrary[lastIndex].readed = "on";
+    } else {
+        myLibrary[lastIndex].readed = "off";
+    }
     displayLibrary();
     const dialog = document.querySelector("dialog");
     dialog.close();
+    let title = document.querySelector("#title");
+    let author = document.querySelector("#author");
+    let pages = document.querySelector("#pages");
+    title.value = "";
+    author.value = "";
+    pages.value = "";
 });
+
+function styleStatus(readedStatus, x, y, z) {
+    if (readedStatus === "on") {
+        x.setAttribute("style", "background-color: var(--green-color);");
+        x.textContent = "Yes";
+        y.setAttribute("style", "background-color: white;");
+        y.textContent = "";
+        z.setAttribute("style", "background-color: var(--green-color);")
+    } else {
+        x.setAttribute("style", "background-color: white;");
+        x.textContent = "";
+        y.setAttribute("style", "background-color: rgb(218, 0, 0);");
+        y.textContent = "No";
+        z.setAttribute("style", "background-color: rgb(218, 0, 0);")
+    }
+}
