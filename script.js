@@ -5,7 +5,7 @@ function Book(title, author, pages, readed) {
     this.author = author;
     this.pages = pages;
     this.readed = readed;
-}
+};
 
 function addBookToLibrary() {
     let title = document.querySelector("#title").value;
@@ -15,7 +15,7 @@ function addBookToLibrary() {
 
     let book = new Book(title, author, pages, readed);
     myLibrary.push(book);
-}
+};
 
 function displayLibrary() {
     const libraryContent = document.querySelector(".library-content");
@@ -83,7 +83,23 @@ function displayLibrary() {
             displayLibrary();
         });
     }  
-}
+};
+
+function styleStatus(readedStatus, x, y, z) {
+    if (readedStatus === "on") {
+        x.setAttribute("style", "background-color: var(--green-color);");
+        x.textContent = "Yes";
+        y.setAttribute("style", "background-color: white;");
+        y.textContent = "";
+        z.setAttribute("style", "background-color: var(--green-color);")
+    } else {
+        x.setAttribute("style", "background-color: white;");
+        x.textContent = "";
+        y.setAttribute("style", "background-color: rgb(218, 0, 0);");
+        y.textContent = "No";
+        z.setAttribute("style", "background-color: rgb(218, 0, 0);")
+    }
+};
 
 const newBookButton = document.querySelector(".new-book");
 newBookButton.addEventListener("click", () => {
@@ -92,7 +108,6 @@ newBookButton.addEventListener("click", () => {
 });
 
 const addButton = document.querySelector(".add");
-
 addButton.addEventListener("click", () => {
     addBookToLibrary();
     let checkbox = document.querySelector("#readed");
@@ -113,18 +128,8 @@ addButton.addEventListener("click", () => {
     pages.value = "";
 });
 
-function styleStatus(readedStatus, x, y, z) {
-    if (readedStatus === "on") {
-        x.setAttribute("style", "background-color: var(--green-color);");
-        x.textContent = "Yes";
-        y.setAttribute("style", "background-color: white;");
-        y.textContent = "";
-        z.setAttribute("style", "background-color: var(--green-color);")
-    } else {
-        x.setAttribute("style", "background-color: white;");
-        x.textContent = "";
-        y.setAttribute("style", "background-color: rgb(218, 0, 0);");
-        y.textContent = "No";
-        z.setAttribute("style", "background-color: rgb(218, 0, 0);")
-    }
-}
+const quit = document.querySelector(".quit");
+quit.addEventListener("click", () => {
+    const dialog = document.querySelector("dialog");
+    dialog.close();
+});
